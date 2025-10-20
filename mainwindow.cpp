@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
             name = "Anonymous";
         }
         QByteArray data = QString("LOGIN:" + name.trimmed()).toUtf8();
-        udpSocket->writeDatagram(data, QHostAddress::Broadcast, 55555);
+        udpSocket->writeDatagram(data, QHostAddress("192.168.0.255"), 55555);
         ui->textEditInfo->append("Logged in as " + name);
     });
 
