@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 4.0)
+﻿cmake_minimum_required(VERSION 3.27.7)
 project(LocalChat)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -6,7 +6,11 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "D:/Qt6/6.7.0/mingw_64")
+if (WIN32)
+    set(CMAKE_PREFIX_PATH "D:/Qt6/6.7.0/mingw_64")
+elseif(APPLE)
+    set(CMAKE_PREFIX_PATH "$ENV{HOME}/Qt/6.7.0/macos")
+endif()
 
 find_package(Qt6 COMPONENTS
         Core
